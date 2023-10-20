@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PromptMessage : Interactable
 {
+    [SerializeField]
+    private GameObject door;
+    private bool dooropen;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,7 @@ public class PromptMessage : Interactable
     //this function is where we will design our interaction code.
     protected override void Interact()
     {
-       //can check if working by using debug.log
-       // Debug.Log("Interactable");
+        dooropen = !dooropen;
+        door.GetComponent<Animator>().SetBool("IsOpen", dooropen);
     }
 }

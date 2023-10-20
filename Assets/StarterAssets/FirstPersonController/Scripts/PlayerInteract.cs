@@ -20,7 +20,9 @@ public class PlayerInteract : MonoBehaviour
     void Update()
     {
         PlayerUI.UpdateText(string.Empty);
+        PlayerUI.UpdateDescriptionText(string.Empty);
         PlayerUI.hide();
+        PlayerUI.Descriptionhide();
         RaycastHit hit;
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit, 2, InteractableLayerMask))
         {
@@ -28,8 +30,10 @@ public class PlayerInteract : MonoBehaviour
             {
                 Interactable Interactable = hit.collider.GetComponent<Interactable>();
                 PlayerUI.UpdateText(Interactable.PromptMessage);
+                PlayerUI.UpdateDescriptionText(Interactable.Descriptiontext);
                 PlayerUI.show();
-                if(Input.GetKeyDown(KeyCode.E))
+                PlayerUI.Descriptionshow();
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     Interactable.BaseInteract(); 
                 }

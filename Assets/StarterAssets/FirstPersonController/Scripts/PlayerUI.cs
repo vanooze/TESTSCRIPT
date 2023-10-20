@@ -9,6 +9,11 @@ public class PlayerUI : MonoBehaviour
     private TextMeshProUGUI PromptText;
     [SerializeField]
     private GameObject containerGameObject;
+    [SerializeField]
+    private GameObject ItemDescription;
+    [SerializeField]
+    private TextMeshProUGUI Descriptiontext;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +26,12 @@ public class PlayerUI : MonoBehaviour
         PromptText.text = PromptMessage;
     }
 
+    public void UpdateDescriptionText (string DescriptionText)
+    {
+        Descriptiontext.text= DescriptionText;
+    }
+
+
     public void show()
     {
         containerGameObject.SetActive(true);
@@ -29,6 +40,16 @@ public class PlayerUI : MonoBehaviour
     public void hide()
     {
         containerGameObject.SetActive(false);
+    }
+
+    public void Descriptionshow()
+    {
+        ItemDescription.SetActive(true);
+    }
+
+    public void Descriptionhide()
+    {
+        ItemDescription.SetActive(false);
     }
 
 }
